@@ -25,7 +25,7 @@ build-mysql-local:
 	@kubectl apply -f mysql/mysql-service.yaml
 	@kubectl apply -f mysql/mysql-secret.yaml
 
-build-app-event-service:
+build-event-service:
 	@echo "Building jeeves microservices, please be sure you are logged in to docker as we will push the image to the hub and minikube is running"
 	@docker build -t event-service ./event-service/ -f ../event-service/docker/Dockerfile
 	@docker tag event-service ngc23/event-service:latest
