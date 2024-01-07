@@ -27,14 +27,14 @@ build-mysql-local:
 
 build-app-event-service:
 	@echo "Building jeeves microservices, please be sure you are logged in to docker as we will push the image to the hub and minikube is running"
-	@docker build -t event-service ./event-service/ -f event-service/docker/Dockerfile
+	@docker build -t event-service ./event-service/ -f ../event-service/docker/Dockerfile
 	@docker tag event-service ngc23/event-service:latest
 	@docker push ngc23/event-service:latest
 	@echo "Building of the jeeves services and please be sure you are logged in to docker as we will push the image to the hub, frontend application must still happen with a ionic serve"
 	@echo "Docker images done building and pushed..."
 	@echo "Applying all the kubernetes files for minikube locally, this will take some time.."
-	@kubectl apply -f event-service/build/deployments.yaml
-	@kubectl apply -f event-service/build/service.yaml
+	@kubectl apply -f ../event-service/build/deployments.yaml
+	@kubectl apply -f ../event-service/build/service.yaml
 	@echo "Completed.... please check deployments with kubectl get deployments if you are not sure the files have applied"
 
 start-app:
