@@ -27,7 +27,7 @@ build-mysql-local:
 
 build-event-service:
 	@echo "Building jeeves microservices, please be sure you are logged in to docker as we will push the image to the hub and minikube is running"
-	@docker build -t event-service ./event-service/ -f ../event-service/docker/Dockerfile
+	@docker build -t event-service ../event-service/ -f ../event-service/docker/Dockerfile
 	@docker tag event-service ngc23/event-service:latest
 	@docker push ngc23/event-service:latest
 	@echo "Building of the jeeves services and please be sure you are logged in to docker as we will push the image to the hub, frontend application must still happen with a ionic serve"
